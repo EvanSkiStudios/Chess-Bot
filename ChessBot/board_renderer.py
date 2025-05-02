@@ -14,7 +14,7 @@ print(assets_dir)
 
 def piece_to_filename(piece: Piece) -> str:
     if piece == Piece.NULL:
-        return None
+        return f'pieces\\ERROR.png'
     color = 'white' if piece.color.name == 'WHITE' else 'black'
     name = piece.type.name.lower()
     return f'pieces\\{color}-{name}.png'
@@ -49,4 +49,3 @@ def draw_board(board_data):
 
     board_img.save(os.path.join(output_dir, "board_new.png"))
     # board_img.show()  # Optional: display with default image viewer
-

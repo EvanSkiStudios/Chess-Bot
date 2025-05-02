@@ -52,4 +52,3 @@ class Board:
         self.square[0] = Piece.WHITE_BISHOP
         self.square[63] = Piece.BLACK_QUEEN
         self.square[7] = Piece.BLACK_KNIGHT
-
