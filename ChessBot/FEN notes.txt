@@ -1,0 +1,48 @@
+https://www.chess.com/terms/fen-chess
+https://en.wikipedia.org/wiki/Forsyth%E2%80%93Edwards_Notation
+
+
+"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
+
+Starting board fen
+
+rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR - Board layout
+
+Lower case means black, Upper case means WHITE
+/ means thats the end of a row
+a number means the amount of blank spaces until the next piece
+
+Active Color
+" w KQkq - 0 1"
+
+w means its white's turn next, b for black
+
+Castling Rights
+"KQkq - 0 1"
+
+KQ means white can castle on both King and Queen side
+kq means black can castle on both sides as well
+
+Possible En Passant Targets
+" - 0 1"
+
+-
+
+If a pawn has moved two squares immediately before a position is reached and is thus a possible target for an en passant capture,
+the FEN string adds the square behind the pawn in algebraic notation in its fourth field.
+If no en passant targets are available, the "-" symbol is used.
+
+Halfmove Clock
+"0 1"
+
+0
+
+how many moves both players have made since the last pawn advance or piece capture—known by chess programmers as the number of halfmoves.
+This field is useful to enforce the 50-move draw rule. When this counter reaches 100 (allowing each player to make 50 moves), the game ends in a draw.
+
+Fullmove Number
+"1"
+
+This number is incremented by one every time Black moves. Chess programmers call this a fullmove.
+The Fullmove Number actually shows the number of the move currently being played
+Start of the board so the move is 1

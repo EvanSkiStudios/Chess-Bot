@@ -1,5 +1,7 @@
-from chess_setups import Board
+from chess_setups import ChessBoard
 from board_renderer import draw_board
 
-board = Board()
+board = ChessBoard()
+board.debug_board()
+
 draw_board(board)
