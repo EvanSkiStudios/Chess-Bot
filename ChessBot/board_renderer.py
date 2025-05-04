@@ -2,7 +2,7 @@ import os
 
 from PIL import Image
 
-from board_data import Piece
+from pieces import Piece
 from debug_outputting import print_board_debug
 
 
