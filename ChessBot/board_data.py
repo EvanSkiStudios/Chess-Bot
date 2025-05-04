@@ -85,10 +85,36 @@ def board_from_fen(board: list, fen_string: str):
 class ChessBoard:
     def __init__(self):
         rows, cols = (8, 8)
-        self.square = [[Piece.NULL for _ in range(cols)] for _ in range(rows)]
+        self.squares = [[Piece.NULL for _ in range(cols)] for _ in range(rows)]
 
     def default_board_start(self):
-        self.square = board_from_fen(self.square, "")
+        self.squares = board_from_fen(self.squares, "")
 
     def debug_board(self):
-        self.square = board_from_fen(self.square, "r1bk3r/p2pBpNp/n4n2/1p1NP2P/6P1/3P4/P1P1K3/q5b1")
+        self.squares = board_from_fen(self.squares, "r1bk3r/p2pBpNp/n4n2/1p1NP2P/6P1/3P4/P1P1K3/q5b1")
+
+
+def algebraic_to_index(square: str) -> tuple[int, int]:
+    """
+    Converts algebraic notation (e.g., 'E2') to board indices [row][col].
+    'A1' -> (0, 0), 'H8' -> (7, 7)
+    """
+    file = square[0].upper()
+    rank = int(square[1])
+    col = ord(file) - ord('A')
+    row = rank - 1
+    return row, col
+
+
+def index_to_algebraic(row: int, col: int) -> str:
+    """
+    Converts board indices [row][col] to algebraic notation.
+    (0, 0) -> 'A1', (7, 7) -> 'H8'
+    """
+    file = chr(ord('A') + col)
+    rank = row + 1
+    return f"{file}{rank}"
+
+
+print(algebraic_to_index("E2"))  # Output: (1, 4)
+print(index_to_algebraic(7, 6))  # Output: 'G8'

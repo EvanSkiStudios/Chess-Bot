@@ -2,7 +2,8 @@ import os
 
 from PIL import Image
 
-from chess_setups import Piece
+from board_data import Piece
+from debug_outputting import print_board_debug
 
 
 # get location of assets
@@ -32,7 +33,7 @@ def draw_board(board_data):
 
     for row in range(board_scale):
         for col in range(board_scale):
-            piece = board_data.square[row][col]
+            piece = board_data.squares[row][col]
             if piece == Piece.NULL:
                 continue
 
@@ -48,5 +49,7 @@ def draw_board(board_data):
             y = row * square_size  # Flip to `7 - row` if board image has rank 1 at the bottom
             board_img.paste(piece_img, (x, y), piece_img)
 
+    # save new image of board
     board_img.save(os.path.join(output_dir, "board_new.png"))
-    # board_img.show()  # Optional: display with default image viewer
+    # Print board to console
+    print_board_debug(board_data.squares)
